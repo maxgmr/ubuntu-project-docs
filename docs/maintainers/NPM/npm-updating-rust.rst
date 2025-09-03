@@ -61,7 +61,20 @@ As an example, let's assume you're updating ``rustc-1.84`` (upstream version ``1
 
     Example: ``noble``
 
-* ``<lpuser>``: Your :term:`Launchpad` username. This is also used to refer to your personal Launchpad Git repository's remote name.
+* ``<lpuser>``: Your :term:`Launchpad` username. This is also used to refer to your personal Launchpad Git :term:`repository's <repository>` remote name.
 * ``<foundations>``: Your local Git remote name for the Foundations `rustc Git repository`_.
 
 .. _rustc Git repository: https://git.launchpad.net/~canonical-foundations/ubuntu/+source/rustc
+
+Setting up the Repository Locally
+---------------------------------
+
+Since the Debian build tools generate files in the parent directory of your package source directory, it's recommended to keep things organized by placing the cloned :term:`repository` inside of a fresh directory of its own.
+
+For example, clone the repo inside inside an existing `rustc` directory such that the structure looks like ``rustc/rustc/<debian dir and source files>``. This means that all the :term:`orig tarballs <orig tarball>`, `.changes`_ files, etc. will be inside the upper-level `rustc` directory.
+
+.. _.changes: https://www.debian.org/doc/debian-policy/ch-controlfields.html#debian-upload-changes-control-files-changes
+
+The main repository for `all` versioned Rust toolchain packages is stored in the Foundations `Launchpad Git repo`_. A branch exists for every single upstream release and backport
+
+.. _Launchpad Git repo: https://git.launchpad.net/~canonical-foundations/ubuntu/+source/rustc
